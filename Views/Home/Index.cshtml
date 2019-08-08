@@ -4,37 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    	<title>Dojo Survey -> Model</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="~/css/style.css">
+    <title>Dojo Survey -> Model</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="~/css/style.css">
 	</head>
     <body>
         <h1>Dojo Survey! Input Your Info Below!</h1>
-        <form action="result" method="post">
-            <div>Your Name:  <input type="text" name="Name"></div>
-            <div>Dojo Locations:  <select name="Dojo">
-                    <option value="Berkeley">Berkeley</option>
-                    <option value="Boise">Boise</option>
-                    <option value="Chicago">Chicago</option>
-                    <option value="Dallas">Dallas</option>
-                    <option value="LA">LA</option>
-                    <option value="OC">OC</option>
-                    <option value="Online">Online</option>
-                    <option value="TC">TC</option>
-                    <option value="Tulsa">Tulsa</option>
-                    <option value="SanJose">San Jose</option>
-                    <option value="Seattle">Seattle</option>
-                </select>
-            </div>
-            <div>Favorite Language:  <select name="Language">
+        @model Survey
+        <form asp-action="Create" asp-controller="Home" method="post">
+            <span asp-validation-for="Name"></span><br>
+            <label asp-for="Name">Full Name: </label>
+            <input asp-for="Name"><br>
+
+            <span asp-validation-for="Dojo"></span><br>
+            <label asp-for="Dojo">Dojo Location: </label>
+            <select asp-for="Dojo"><br>
+                <option value="Berkeley">Berkeley</option>
+                <option value="Boise">Boise</option>
+                <option value="Chicago">Chicago</option>
+                <option value="Dallas">Dallas</option>
+                <option value="LA">LA</option>
+                <option value="OC">OC</option>
+                <option value="Online">Online</option>
+                <option value="TC">TC</option>
+                <option value="Tulsa">Tulsa</option>
+                <option value="SanJose">San Jose</option>
+                <option value="Seattle">Seattle</option>
+            </select>
+            
+            <span asp-validation-for="Language"></span><br>
+            <label asp-for="Language">Favorite Location: </label>
+            <select asp-for="Language"><br>
                 <option value="C#">C#</option>
                 <option value="C++">C++</option>
                 <option value="Java">Java</option>
                 <option value="JavaScript">JavaScript</option>
                 <option value="Python">Python</option>
-                </select>
-            </div>
-            Comment (optional):  <textarea class="textarea" name="Comment" rows="5"></textarea>
+            </select>
+
+            <span asp-validation-for="Comment"></span><br>
+            <label asp-for="Comment">Comment: </label>
+            <textarea asp-for="Comment"rows="5"></textarea><br>
+            
             <input class="btn" type="submit" value="Submit Data">
         </form>
     </body>
